@@ -24,26 +24,32 @@
 		var data=`
 body{
 	background:orange;
-	font-size:2vw;
+	font-size:16px;
 }
+/*  撒旦按时打算啊 阿萨德阿萨德按时打算啊啊是
+	阿萨德撒这些请问人
+	是措施克里斯奥克兰 
+*/
 #app{
+	overflow:auto;
+	word-break:break-all;
 	color:blue;
 	border:3px solid green;
 	width:50vw;
 	height:50vh;
 	margin:2%;
-	overflow:auto;
-	word-break:break-all;
-	/*background:url(https://ws1.sinaimg.cn/large/0071jwEqgy1fst3azsfrcj30cv06m42y.jpg) no-repeat center;*/
+	padding:.5em;	
 }
+/* 图片 */
 img{
 	max-width:80%;
 	opacity:1;
 }    
  `;		
+ 		// var data=data[0];
 		var len=data.length;
 		var timer=setInterval(function(){
-			if(data.substring(n-1,n)=='\n'){
+			if(data.substring(n-1,n)==='\n'){
 					app.scrollTop=10000;
 			}		
 			if(n==len-1){
@@ -54,7 +60,7 @@ img{
 				sty.innerHTML=data.substring(0,n);
 			}		
 			n++;
-		},30);
+		},20);
 		// function call(){
 		// 	return new Promise((resolve,reject)=>{
 		// 		setTimeout(function(){
