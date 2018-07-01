@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>	
+<body>
+	<div style='height:500px;'>123</div>
+	<script type="text/javascript">
+		// function a(){
+		// 	var index=0;
+		// 	var f=()=>{
+		// 		// 
+		// 		index++;
+		// 		console.log(index);
+		// 	}
+		// 	return f;
+		// }	
+		// var c=a();
+		// c();c();
+		var a=[1,23,12,41,1,'a','a'];
+		//ES6新增数据结构 set 数组去重复
+		// var b=Array.from(new Set(a));
+		//计数排序的逻辑  数组去重  (只能正整数)
+		var hash=[];
+		for(var i=0;i<a.length;i++){
+			if(!(a[i] in hash)){
+				hash.push(a[i]);
+			}
+		}
+		var b=hash;
+		console.log( b);
+		// console.log(Object.keys(hash));
+		//对象深拷贝
+		var a={
+			list1:{
+				name:'asd',
+				age:18,
+				s:function a(){
+					alert(1);
+				}
+			},
+			list2:{
+				name:'aqqqq',
+				age:19
+			},
+		}
+		// var b= Object.assign({},a);//这种方法只适用于一层对象时，多层就失效
+		// b.list1.name='nnnnnnn';
+		// console.log(a);
+		// console.log(Object.keys(b));
+		//JSON方法 深拷贝，缺点：JSON数据不支持 undefined、引用、正则、Date、函数..拷贝不了
+		// var b=JSON.parse(JSON.stringify(a));
+		// b.list1.name='nnnnnnn';
+		// console.log(b);
+		//递归深拷贝
+		// var d1={a:1,b:2};
+		function clone(object){
+			var object2;
+			if(!(object instanceof Object)){
+				return object;
+			}
+			else if(object instanceof Array){
+				object2=[];
+			}
+			else if(object instanceof Function){
+				object2=eval(object.toString());
+			}
+			else if(object instanceof Object){
+				object2={};
+			}
+			for(let key in object){
+				object2[key]=clone(object[key]);
+			}
+			return object2
+		}
+		// var d2=clone(a);
+		// console.log('d1',d1);
+		// console.log('d2',d2);
+		// let sa=['asdassad'];console.log(sa)
+		var arr=[1,'a',11,2,'334',2131];
+		function paixu(a,b){
+			return a-b;
+		}
+		// console.log(arr);
+		//sort()方法不加参数是对字符串排序
+		//加上一个函数，里面return -就是升序，return +就是降序。
+		// console.log(arr.sort(paixu));
+		alert()
+	</script>
+</body> 
+</html>

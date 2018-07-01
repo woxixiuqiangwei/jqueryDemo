@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<style type="text/css">
+			input{
+				/*border:none;*/
+				/*border-right: none;*/
+				/*outline: none !important;*/
+			}
+			input:focus{
+				/*border:none !important;*/
+				outline: none;
+		}
+	</style>
+</head>
+<body>
+<!-- 	<p>asdsadsd</p>
+	<div>asdasd</div>
+	<p>asdsadsd</p> -->
+	<input type="" name=""  value='asdasdasda'>
+	<h1>asdas</h1>
+
+<!-- 	<script type="text/javascript">
+		$(window).mouseover(function(e){
+			 var ev = ev || window.event;
+             var target = ev.target || ev.srcElement;
+             if(target.nodeName.toLowerCase() == 'p'){
+                    target.style.background = "red";
+                    console.log(ev);
+                }
+		})
+		$(window).mouseout(function(e){
+				var ev = ev || window.event;
+                var target = ev.target || ev.srcElement;
+                if(target.nodeName.toLowerCase() == 'p'){
+                    target.style.background = "#fff";
+                }
+		})
+	</script> -->
+	<script type="text/javascript">
+		var a=1;
+		$('h1').click(function(){
+			// post方式 是属于条件查询，所以如果每次都是相同的话，浏览器是会有缓存的，所以返回的status code是304，说明每次调用的都是相同的东西，客户端会去浏览器缓存里拿数据。在参数里加个时间戳可以解决这个问题
+				// ,{s:1,n:9} &t='+ (new Date()).getTime().toString()	
+			//不带参数的 ，get方式请求，如果接口没有写错，正常调用，每次就会返回status code:200 （有点问题）
+			// $.get('http://localhost:3000/getAllPhoto',function(res){
+			// 	console.log(res);
+			// })
+			$.get('http://localhost:3000/getAllPhoto',{id:6},function(res){
+				console.log(res);
+			})
+			$.ajax('http://jsonplaceholder.typicode.com/users',{
+				// dataType:'json',
+				success(res){
+					console.log(res)
+				},
+				error(err){
+					alert(err);
+				}
+			})
+		})
+		function show(){
+			// alert(1);	
+		}
+		function c1(name){
+			if(name)this.name=name;	
+			// 为 undefined,所以条件不成立，根据原型链找到c1.prototype,结果为tom
+		}
+		function c2(name){
+			//声明了name，但是没有赋值，结果为undefined
+			this.name=name;
+		}
+		function c3(name){
+			// 等价于if语句，如果name有赋值，为前面的，没有就是 john
+			this.name=name || 'john';
+		}
+		//如果new的时候没有传参，那么构造函数里的参数值为undefined
+	/*	c1.prototype.name='tom';
+		c2.prototype.name='tom';
+		c2.prototype.say='11';
+		c3.prototype.name='tom';
+		var c=new c2();*/
+		// var n=1;
+		// var sss=n || '0';
+		// console.log(sss);
+		// var dem=new c2('anderson');
+		// console.log(dem.name);
+		// alert(c.name);
+		// alert((new c1().name)+(c.name)+(new c3().name))
+		// 弹出的结果就是 tom undefined john
+		// show();
+		// var a=show;
+		// window.onclick=function(){
+		// 	// a();
+		// 	for(var i=0;i<3;i++){
+		// 		var a=i;
+		// 	}
+		// 	console.log(a);
+		// }
+		// setTimeout(show,1000)
+		// $.ajax('https://www.toutiao.com/stream/widget/local_weather/city/',{
+		// 	success(res){
+		// 		$('h1').html(res.data['浙江']['温州'])
+		// 		console.log(res.data['浙江']);
+		// 	}
+		// })
+	</script>
+</body>
+</html>

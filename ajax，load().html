@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src='jquery-1.10.2.min.js'></script>
+</head>
+<body>
+	<input id='txt1'>
+	<button value='11'>555</button>
+	<h2 id='star'>dianwo</h2>
+	<h1 style="display: none"></h1>
+	<!-- <img src="http://demo.zving.com/demo/authCode.zhtml?1526971027439"> -->
+	<script type="text/javascript">
+		// $(document).ready(function(){
+		// 	$('h2').load('','',function(){
+		// 		alert(1);
+
+		// 	})
+		// })
+		
+		// $('h2').load("loadDemo.html");
+		var loaded=false;
+		$('button').click(function(){
+			if($('h1').is(':visible')){
+				$('h1').slideUp();
+			}
+			else{
+				if(!loaded){
+					$('h1').load('loadDemo.html');
+				//	var ajax=new XMLHttpRequest();
+				//	ajax.open('GET','http://localhost:7777/school_website_api/photo/getAllPhoto',true);
+					//ajax.send();
+					//open(method, url, async) 方法需要三个参数:
+					　//async：规定应当对请求进行异步（true）或同步（false）处理；
+					// ajax.onreadystatechange=function(){
+					// 	if(ajax.readyState == 4){
+					// 		if(this.status == 200){
+					// 			//readyState=4: 请求已完成，且响应已就绪（下载操作已完成）
+					// 			$('h1').append(this.responseText);
+					// 			//responseText：获得字符串形式的响应数据。
+					// 			console.log(JSON.parse(ajax.responseText));
+					// 			// console.log(ajax.responseText));
+					// 		}
+					// 		else{
+					// 			alert('出错');
+					// 		}
+					// 	}				
+
+					// }
+					//onload是 说明请求接口一定成功 才会 执行此函数，请求不成功则不会执行
+					//ajax.onload=function(){
+					//	$('h1').append(JSON.parse(ajax.responseText));
+					//}
+					
+					// http://demo.zving.com/demo/authCode.zhtml?1526971027439
+					//http://localhost:7777/school_website_api/message/getAllMessage?s=2&n=2
+					var This=$(this);
+					$.ajax({
+						url:'http://localhost:7777/school_website_api/message/getAllMessage',
+						data:{'s':1,'n':This.val()},
+						type:'get',
+						async:true //是否 同步，true默认异步
+						//}).done(function(res){
+					}).done((res)=>{					
+						var s='';
+						for (var i in res){
+							// s+=res[i]+'<br>';
+							// console.log(res.data[0]);
+						}
+
+						$('h1').append(s);
+						console.log(res.data);
+					}).error(function(ress){
+						alert(ress);
+					})
+					// console.log('waiwaiwaiwa');
+
+					// $(selector).get(url,data,success(response,status,xhr),dataType)
+					// $.get('http://jsonplaceholder.typicode.com/users',function(res){
+					// 	$('h1').append(res);
+					// }).done(function(res){
+					// 	console.log(res) 
+					// }).error(function(ress){
+					// 	alert(ress);
+					// })
+					loaded=true;
+				} 
+				$('h1').slideDown();
+			}
+			
+			// $('h1').slideToggle();
+		})
+	</script>
+</body>
+</html>

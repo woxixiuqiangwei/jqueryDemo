@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery-1.10.2.min.js'></script>
+	<link rel="stylesheet" href="pure-min.css">
+	<style>
+	    .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+		h1{display: inline-block;}
+		div{width:500px;height:500px;border-radius: 5px;background: orange;display: none;}
+	</style>
+</head>
+<body>
+	<h1>5</h1><a class="pure-button button-success" href="#">跳过</a>
+	<div>
+		<b>sajdaskjldasklksajldkjlaskjasdkjaskjldaksdkasdkassk
+	</div>
+	<p><i>431</i></p>
+	<p>2342</p>
+	<p>123</p>
+	<h2>11</h2>
+	<script>
+		var a=document.querySelector('h2');
+		// alert(a-1);
+		a.innerHTML-=2;
+		//var p=document.querySelectorAll('p');
+		// var timer=null;
+		var num=$('h1').html();
+		// timer=setInterval(function(){
+		// 	num--;	
+		// 	$('h1').html(num);
+		// 	if(num<0){
+		// 		clearInterval(timer);
+		// 		// alert('时间到');
+		// 		$('h1').html(0);
+		// 		$('h1').hide();
+		// 		$('a').hide();
+		// 		$('div').fadeIn();
+		// 	}	
+		// },1000)
+		$('a').click(function(){
+			/*p.forEach(function(item,index){
+				alert(item);
+			})*/
+			//jq的each方法相当于for循环,其中i为对象的索引值
+			//js中的forEach()只用于数组对象
+			 // $('p').each(function(i){
+			 // alert($(this).html());//text()只取标签中的内容，不会取到标签。html()会获取到标签和内容
+			 // })
+			//clearInterval(timer);
+			//$('h1').hide();
+			//$('a').hide();
+			//$('div').fadeIn();
+		})
+		// alert($('h1').html());
+	</script>
+</body>
+</html>

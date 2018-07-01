@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery-1.10.2.min.js'></script>
+	<style>
+		ul{list-style:none;}
+	</style>
+</head>
+<body>
+	<input type="text" id='names' placeholder="请输入名字">
+	<input type="text" id='content' placeholder="请输入内容">
+	<input type="submit" id='submit'>
+	<input type="button" id='clear' value='清空'>
+	<a href='1.html'>asd</a>
+	<div></div>
+	<ul>
+		
+	</ul>
+	<script>
+		listShow();
+		$('#submit').click(function(){
+			var name=$('#names').val();
+			var content=$('#content').val();
+			if(name=='' || content==''	)
+			{
+				alert('名字和内容不能为空！');
+			}
+			else	
+			{	localStorage.setItem(name,content);
+				$('#names').val('');$('#content').val('');
+				listShow();
+			}
+		})
+		function listShow(){
+			var str='',list=$('ul');
+			for(var i=0;i<localStorage.length;i++){
+				var key=localStorage.key(i);
+				var value=localStorage.getItem(key);
+				str=str+'<li>'+key+"说："+value+'</li>';
+			}
+
+			list.html(str);
+		}
+		$('#clear').click(function(){
+			$('ul').html('');
+			localStorage.clear();
+		})
+		$("a").click(function(){
+			// alert(1);
+ 			// $("div").load("1.html?id=ac");
+		});
+	</script>
+</body>
+</html>

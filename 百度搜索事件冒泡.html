@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+	</title>
+	<style>
+		div{width: 500px;height: 500px;background:pink;}
+		p{background: green;height: 100px;}
+		a{text-decoration: none;}
+		/*/ul {list-style: none;font-size: 0;/*word-spacing: 0px;*/}*
+		/*ul li{display: inline-block;background: red;font-size: 25px;}*/
+	</style>
+	<script src='jquery-1.10.2.min.js'></script>
+	<script>
+		window.onload=function(){
+			$('p').click(function(){
+				// alert(1111111);
+			}) 
+		}
+		/*function cc(){
+			alert(2131);
+		}*/
+		//为什么自定义函数不能放在加载事件里
+		//因为加载事件里是先去加载DOM节点，当加载到onclick时发现加载时间前没有该函数，所以就未定义。
+	</script>
+</head>
+<body>
+	<p>asd</p><!--  onclick="cc()" -->
+	<!-- <ul>
+		<li>131</li>
+		<li>撒发生的啊</li>
+		<li>额无法看出假按揭</li>
+	</ul> -->
+	<div id='hd'>
+		<p class='pp'>2313154645</p>
+		<p class='pp'>231315464545436</p>
+		<p class='pp'>2313154645sadasdasdasd</p>
+		<input type="text" id='sear'>
+		<ul>
+			<!-- <li>1</li> -->
+		</ul>
+
+	</div>
+	<button id="btn">点下</button>
+	<script>
+		var oul=document.getElementsByTagName('ul')[0];
+		//var sear=document.getElementById('sear');
+		sear.onkeyup=function(){
+			var val=this.value.trim();
+			if(val.length>0){
+				var script=document.createElement('script');
+				script.src='https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+val+'&cb=hd';
+				document.body.appendChild(script);
+			}
+		}
+		//wd=就是我们输入的关键字，cb=就是函数名
+		//
+		function hd(data){
+			//data是一个数据集合
+			//data.s是集合中的内容
+			console.log(data.s);
+			var key=data.s;//data.s是数组
+			oul.innerHTML='';
+			key.forEach(function(el,index){
+				// console.log(el);
+				var oli=document.createElement('li');
+				oli.innerHTML="<a href=http://www.baidu.com/s?wd="+el+">"+el+' '+index+"</a>";
+				oul.appendChild(oli);
+			})
+		}
+		/*var content=document.getElementsByTagName('p');
+			content.forEach(function(item,index){
+				alert(item);
+			})		*/
+			//forEach()只能用于数组对象
+		var arr=['1','123','43242'];
+		arr.forEach(function(item,index){
+			console.log(item);
+		})
+		var p1=document.querySelector('.pp');
+		var div1=document.querySelector('div');
+		btn.onclick=function(){
+			var newp='<p class="pp">123123123123</p>';
+			//var newp=document.createElement('p');
+			//newp.innerHTML='111111111111111111111111111111';
+			//div1.appendChild(newp);//js方法，这样不行
+			$('#hd').append(newp);//这样可以
+			//div1.innerHTML+=newp;
+		}
+		$('#hd').on('click','.pp',function(){
+			alert('pppppp`````````````````````````');
+		})
+		//p1.onclick=function(e){
+		//	alert('pppppp');
+			// e.stopPropagation();//取消冒泡
+		//}
+		//上下都可以,jquery还加了 on 和 bind 绑定事件方法
+		//区别就在于on可用于未来元素，就是用js动态添加的元素
+		//p1.addEventListener('click',function(e){
+			//alert('pppppp');
+			//e.stopPropagation();//阻止事件冒泡。就是值子元素和父元素都有单击事件，如果我们单击子元素默认情况下先是触发子还是再是父，如果我们不想触发父，那就阻止事件冒泡
+		//},false)//第三个参数默认是false，事件冒泡，就是内部元素先触发事件，然后外部
+		//事件捕获 true 就是，点击子元素会先触发父元素的事件，然后再触发子元素的事件，与冒泡相反。
+		div1.addEventListener('click',function(){
+			//alert('dddddddddddddddddddddddd');
+		},false)
+		div1.onclick=function(){
+			//alert('div');
+		}
+	</script>
+</body>
+</html>

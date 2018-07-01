@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery-1.10.2.min.js'></script>
+</head>
+<body>
+	<select name="" id="sheng">
+		<option>--请选择省份</option>
+	</select>
+	<select name="" id="city">
+		<option>--请选择城市</option>
+	</select>
+	<select name="" id="qu">
+		<option value="">--请选择县区</option>
+	</select>
+	<!-- <asd></asd> -->
+	<script>
+var aProvince = ["河北省", "山西省", "湖北省","广东省"];
+var aCity = [["石家庄市", "张家口市", "承德市", "秦皇岛市"], ["太原市", "朔州市", "大同市", "阳泉市"], ["武汉市", "孝感市", "宜昌市", "襄阳市"],['深圳市','广州市']];
+var aCountry = [[["无极县", "赵县", "栾城县"], 
+				 ["沽源县", "尚义县", "阳原县"], 
+				 ["平泉县", "滦平县", "隆化县"], 
+				 ["抚宁县", "卢龙县", "昌黎县"]],
+				 [["清徐县", "阳曲县", "娄烦县"],
+				 ["山阴县", "应县", "右玉县"], 
+				 ["左云县", "阳高县", "天镇县"], 
+				 ["盂县", "平定县", "矿区"]], 
+				 [["武昌区", "洪山区", "东湖新区"], 
+				 ["云梦县", "大悟县", "应城市"], 
+				 ["秭归县", "远安县", "枝江市"],
+				 ["枣阳市", "老河口市", "谷城县"]]];
+	var	num,num2;
+	for(var i=0;i<aProvince.length;i++){
+	$('#sheng').append('<option>'+aProvince[i]+'</option>');
+	}
+	$('#sheng').change(function(){
+		num=$(this).children('option:selected').index();
+		$('#city').children().not(':eq(0)').remove();
+		$('#qu').children().not(':eq(0)').remove();
+		if(num>0){
+			var ac=aCity[num-1];//-1是因为去掉请选择
+			for(var i=0;i<ac.length;i++)
+			$('#city').append('<option>'+ac[i]+'</option>');
+		}
+	})
+	$('#city').change(function(){
+		$('#qu').children().not(':eq(0)').remove();
+		num2=$(this).children('option:selected').index();
+		if(num2>0){
+			var ac=aCountry[num-1][num2-1];//-1是因为去掉请选择
+			for(var i=0;i<ac.length;i++)
+			$('#qu').append('<option>'+ac[i]+'</option>');
+		}
+	})
+	$('#qu').change(function(){
+		var content=$(this).children(':selected').text();
+		var prev=$(this).prev().children('option:selected').text();
+		alert('你选择的是'+prev+' '+content);
+	})
+	</script>
+</body>
+</html>

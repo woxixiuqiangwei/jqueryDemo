@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- html 结构层 css 表示层 js 行为层 -->
+	<style></style>
+	<script src='jquery-1.10.2.min.js'></script>
+	<style>
+		div{font-size: 0;}
+		span{display: inline-block;width: 100px;height: 50px;background: blue;font-size: 12px;}
+	</style>
+</head>
+<body>
+	<div>
+		<span>111</span>
+		<span>2222</span>
+		<span>333333</span>
+	</div>
+	<p class='pppp' hd='nnnnnnnnnnn'>asdsa</p>
+	<p class='cccc' hd='nnnnnnnnnnn'>cccccccccc</p>
+	<script>
+	$('p').click(function(){
+		alert(123123123);
+	})
+	$('p').unbind();
+	// var q=document.querySelector('p');选择第一个p标签
+	var q=document.querySelectorAll('p');//选择所有p标签,数组
+	// alert(q[1].className);
+	//q.onclick=null;
+	// alert($('p').attr('hd'));attr()是获取自定义属性,prop是获取特有属性,获取共有属性两个方法都可以,比如class,id,name
+	// $('p').css({'color':'red'});
+	/*$('p').bind('click',function(){
+		alert(111111);
+	})
+	$('p').bind('mouseenter',function(){
+		alert(222);
+	})*/
+	// $('p').unbind();删除全部绑定事件
+	// $('p').unbind('mouseenter');删除指定事件
+	/*$('p').on('click',function(){
+		alert(1);
+	})*/
+	</script>
+</body>
+</html>

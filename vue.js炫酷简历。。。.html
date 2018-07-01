@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#app{
+			white-space: pre-wrap;
+		}
+		img{
+			opacity: 0;
+			transition: .5s;
+		}
+	</style>
+</head>
+<body>
+	<style type="text/css" id='sty'></style>
+	<!-- <pre id="app"></pre> -->
+	<div id="app"></div>
+	<img src="https://ws1.sinaimg.cn/large/0071jwEqgy1fst3azsfrcj30cv06m42y.jpg">
+	<script type="text/javascript">
+		var n=0;
+		var data=`
+body{
+	background:orange;
+}
+#app{
+	color:red;
+	border:3px solid green;
+	width:50vw;
+	height:50vh;
+	margin:2%;
+	overflow:auto;
+	word-break:break-all;
+	/*background:url(https://ws1.sinaimg.cn/large/0071jwEqgy1fst3azsfrcj30cv06m42y.jpg) no-repeat center;*/
+}
+img{
+	max-width:100%;
+	opacity:1;
+}    
+ `;		
+		var len=data.length;
+		var timer=setInterval(function(){
+			if(data.substring(n-1,n)=='\n'){
+					app.scrollTop=10000;
+			}		
+			if(n==len-1){
+				clearInterval(timer);
+			}
+			else{				
+				app.innerHTML=data.substring(0,n);
+				sty.innerHTML=data.substring(0,n);
+			}		
+			n++;
+		},2);
+		// function call(){
+		// 	return new Promise((resolve,reject)=>{
+		// 		setTimeout(function(){
+		// 			// console.log('打好了');
+		// 			if(Math.random()>=0.5)
+		// 				resolve('打好了');
+		// 			else{
+		// 				reject('出现问题');
+		// 			}
+		// 		},30)
+		// 	})
+		// }
+		// call().then(function(res){
+		// 	console.log(res);
+		// }).catch(function(res){
+		// 	console.log(res);
+		// });
+		// // ,function(res){
+		// // 	console.log(res);
+		// // }
+		// console.log(1);
+	</script>
+</body>
+</html>

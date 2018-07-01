@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='jquery-1.10.2.min.js'></script>
+	<style>
+			#hd{
+			width:200px;height:300px;background:blue url('1.png') no-repeat;
+			 filter: blur(6px);
+			-webkit-filter: blur(6px);  /* chrome, opera */
+			-ms-filter: blur(6px);/*IE*/
+			-moz-filter: blur(6px);/*火狐*/	
+			}		
+			.aa{color:red;}
+			.bb{font-size: 25px;}
+			h3{
+
+			}
+			h3:after{
+				content: '999';
+				/*display: none;*/
+			}
+			h3:hover h3:after{
+				display: block;
+			}
+			h3:hover{
+				color:blue;
+			}
+	</style>
+
+</head>
+<body>
+
+<!-- 	<input type="text" id='t1' value=''> -->
+<!-- 	<div id="hd"></div> -->
+	<p>123</p><p>123</p>
+	<h3>66666</h3>
+	<!-- <script>
+		/*hd.onclick=function(){
+		}*/
+		//oninput 当文本框的值发生变化马上触发. IE678不支持
+		//onchange 当文本框的值发生变化,并且失去焦点了才触发 也可以作用于 <keygen> 和 <select> 元素。
+		//onpropertychange  标准浏览器不支持,IE10及以下支持
+		 //.onchange=function(){
+	
+		//}
+		var p=document.getElementsByTagName('p');
+		var f=1;
+		for(var i=0;i<2;i++){
+			p[i].onclick=function(){
+				//if(this.style.color=='black')
+				if(f==1)
+				this.style.color='red';
+				else
+				this.style.color='black';
+				f=-f;
+				/*for(var j=0;j<3;j++)
+				{
+					p[j].style.color='black';
+				}*/
+				//p[i].style.color='red';//这里的i的值为3,没用
+					//this.style.color='red';
+					
+					//this.指当前事件源
+				//f=-f;//如果这里是f=0的话那么变成0之后永远不会变成1,所以这里取反最合适
+			}
+		}		
+	</script> -->
+	<script>
+		$(function(){
+			$('p').click(function(){
+				$(this).toggleClass('aa bb');
+			})
+		})
+		// var p=document.getElementsByTagName('p');
+		// for(var i=0;i<2;i++){
+		// 	p[i].index=i;
+		// 	p[i].onclick=function(){
+		// 		alert(this.index);
+		// 	}
+		// }
+	</script>
+</body>
+</html>

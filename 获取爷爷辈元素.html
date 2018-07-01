@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src='jquery-1.10.2.min.js'></script>
+	<title></title>
+	<style type="text/css">
+	div{
+		width: 300px;height: 100px;background: blue
+	}
+	div ul li{
+		background: gold;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>1</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>2</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li><button style='border:none;color:#fff'>asdsad</button></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		$('ul li').click(function(){
+			var question=confirm('你确定要删除吗？');
+			if(question){
+				$(this).parents('div').css('display','none');
+			}
+			else{
+				console.log('不删除');
+			}
+			
+		})
+	</script>
+</body>
+</html>

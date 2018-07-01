@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<!-- <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script> -->
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!-- 	<style>
+		.hd{width:200px;height: 200px;background:blue;	/*line-height: 100px;*/
+			display: flex;
+			align-items: center;
+			transition:.3s;
+		}
+		.hd:hover{width: 200px;height: 400px;}
+		a{/*transition: .9s;*//*display:inline-block;*/}
+		/*行元素加动画无效*/
+		/*a:hover{animation: run 1s ease 2;}*/
+		/*@keyframes run{
+			0%{
+				transform: rotateX(0deg)
+			}
+			100%{
+				transform: rotateX(360deg);
+			}
+		}*/
+		div{width: 1000px;}
+		</style> -->
+	<style>
+		*{margin: 0;padding: 0;}
+		div.hd{
+			/*width: 300px;*/
+			width:calc(100% - 20px);
+			height: 100px;
+			background: gold;
+			/*margin: 5px;*/
+		}
+		div p{
+			background: blue;
+		}
+		/*#d1{
+			width:500px;/*height:200px;background: orange;overflow: hidden;
+			clear: both;
+		}
+		#d1 div{
+			width: 150px;float: left;height:200px;background: green;
+		}
+		#d2{
+			width:500px;height: 300px;background: blue;
+		}*/
+/*		html,body{width:100%;height:100%;}
+		div{height: 100%;background: url('ad4.jpg') no-repeat center;background-size: cover;}*/
+		/*div{
+			width: 500px;height:300px;background: gold;position: relative;left:300px;top:200px;
+		}
+		div p{
+			border:1px solid red;height: 200px;float: left;width: 100px;
+		}*/
+	</style>
+</head>
+<body>
+	
+	<!-- 	<p class="p1">123</p>
+		<p class="p1">456</p>
+		<p>789</p>
+		<h2 data='1' datas='2' class='yo jo so'>23</h2>
+		<a href="" so='1'>sa45d456sasa6d</a>
+		<big>ll</big>
+		<small>xx</small> -->
+		<div class="hd">
+			<p>66666666</p>
+		</div>
+
+		<!-- <div></div>
+		<div></div> -->
+	
+	<script type="text/javascript">
+		// -function(window){
+		// 	alert(1);
+		// }(window),
+		// function(window){
+		// 	alert(2);
+		// }(window),
+		// // $('p').click((e)=>{
+		$('p').click((e)=>{	
+			alert(1);
+			e.stopPropagation();//阻止事件冒泡
+			// e.preventDefault();//取消默认行为
+			// return false  //同时阻止事件冒泡也会阻止默认事件
+		})
+		// $('div').click(()=>{
+		$('div').click(function(e){	
+			alert('div');
+		})
+		$('.hd').css('backgroundColor',' orange');
+		var d=document.querySelectorAll('div');
+		for(let i =0;i<d.length;i++){
+			// let 每一次循环的i其实都是一个新的变量
+			// var 所有数组d的成员里面的i，指向的都是同一个i，
+			d[i].onclick=function(){
+				console.log(i);
+			}
+
+		}
+		// let 变量不提升 const 常量不提升 ，var  变量提升
+		// 函数提升在变量提升之上
+		// console.log(foo); // 输出undefined
+		// var foo = 2;
+
+		// let 的情况
+		// console.log(bar); // 报错ReferenceError
+		// let bar = 2;
+		// if (true) {
+		// 	 console.log(MAX); // ReferenceError
+		// 	 const MAX = 5;
+		// }
+		$(window).click(function(){
+			// $('a').prop('href','xhaxla');
+			// $('a').attr('so','xhaxla');
+			// $('h2').removeAttr('class');
+			// $('h2').attr('text','laobiao');
+			 // $('h2').removeClass('jo');
+
+		})
+		function show(name,age){
+			this.name=name;
+			this.age=age;
+			this.say=function(){
+				alert(this.age);
+			}
+		}
+		// var huahua=new show('王花花',18);
+		// huahua.say();
+		// $.get('http://jsonplaceholder.typicode.com/users',function(res,sta){
+		// 	// $('h2').html(res);
+		// 	// console.log(JSON.parse(res));	
+		// 	console.log(res);
+		// 	// console.log(sta);
+		// }).fail(function(){
+		// 	console.log('调用失败');
+		// })
+
+		// $('div').click(function(){
+		// 	alert('fu');
+		// })
+		// $('div').on('click','.p1',function(){
+		// 	alert('zi');
+		// })
+		// var ps=document.querySelectorAll('p');
+		// console.log(ps[2].offsetLeft);
+		// for(var i=0;i<ps.length;i++){
+			// $('p').css({margin:'20px'});
+			// console.log($('p').eq(i).offset().left);
+		// }
+	</script>
+	<!-- <div></div> -->
+	<!-- <div id='app' onclick='show()'> 
+		<p>54645</p>
+	</div> -->
+	<!-- <script type="text/javascript">
+		new Vue({
+			el:'#app',
+			methods:{
+				show(e){
+					alert('父');
+
+				}
+			}
+		})		
+		function show(){
+			alert('父');
+		}
+		// $('p').click(function(){
+		// 	alert('子');
+		// },true)
+		var p=document.querySelector('p');
+		p.onclick=function(e){
+			//return false;//他会同时阻止事件冒泡也会阻止默认事件
+			alert('子');
+			// e.stopPropagation();这是阻止事件的冒泡方法
+			//e.preventDefault();这是阻止默认事件的方法
+			
+		}
+		// $('div').on('click','p',function(){
+		// 	alert('子');
+			
+		// })
+		$('div').append('<p>54645</p>');
+	</script> -->
+    <!-- <div id='d1'>
+        <div>213</div><div>123123123123</div><div>1231231</div>
+    </div>
+    <div id='d2'></div> -->
+	<!-- <a href="">asdasad</a> -->
+	<!-- <div>
+		<img src="ad4.jpg" alt="">
+	</div> -->
+	<!-- <div class="hd">asdsad爱神的箭拉萨的撒按时按时d	口啦</div> -->
+	<script>
+		//var n=window.prompt('请输入一个数');
+		 	// for(var i=0;i<n;i++){
+		 	// 	alert(1);
+		 	// }
+		 	// alert(typeof(n));
+		 	var name='window';
+		 	var object={
+		 		name:'obj',
+		 		getname:function(){
+		 			return this.name;
+		 		}
+		 	}
+		 	// alert(object.getname());
+		function show(a,b,c,d){
+			// return a+b;
+			console.log(show.arguments.length);
+			console.log(show.length);
+		}
+		show(1,2,3);
+
+		// alert(s);//函数提升高于变量提升，所以打印函数
+		// s();
+		// var s=3;
+		// function s(){
+		// 	alert(10);
+		// }
+		// alert(s);
+		// s=6;
+		// s();//报错，因为s的值为6，不再是函数。
+		function b(){alrt(123)}
+		if(function b(){alrt(123)})
+		{
+			// console.log(b )
+		}
+	</script>
+</body>
+</html>

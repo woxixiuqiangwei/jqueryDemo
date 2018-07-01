@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function animal(body){
+			this.body='sa';
+		}
+		animal.prototype.show=function(){
+			console.log(11);
+		}
+		function people(name,age){
+			//构造函数继承
+			animal.call(this,name,age);
+			// 实质是利用call来改变people中的this指向
+			// 可以实现多继承,不能继承原型属性/方法,
+			this.name=name;
+			this.age=age;
+			console.log(people.arguments);//实参内容，  函数名.length,形参的数量
+		}
+		//people.prototype.__proto__=animal.prototype;//这句就是原型继承的核心，把人原型的原型链指向动物原型，从而不会把自身的构造函数改变，这样，人实例用可以用动物原型中的方法了
+		// var f=function(){};
+		// f.prototype=animal.prototype;
+		// people.prototype.__proto__=f.prototype;
+		//原型链继承：
+		
+		people.prototype = new animal();  
+		people.prototype.constructor = people;  
+		// people.prototype.s=function(){
+		// 	console.log(6);
+		// }
+		people.prototype.sayhello=function(){
+			console.log(this.name+' hello');
+		}
+		animal.prototype.shows=function(){
+			console.log(22);
+			console.log(this.body);
+		}
+		var a1=new people('whh',17);
+		a1.body='rourourou';
+		a1.show();
+		// var ss=['s'];
+		// console.log(a1);
+
+		//class继承
+		//注意 类的传参时必须加constructor方法用来进行传参。传递参数后可以直接使用this.xxx进行调用。这里需要注意的是类里两个方法中间不要写逗号了。
+		class A{
+			constructor(name){
+				this.name=name;			
+			}
+			say(){
+					console.log(this.name+' say....');
+			}
+		}
+		class B extends A{
+			constructor(age){
+				super();//继承了A之后this指向会变，然后 super()一下，this就指向自己了
+				this.age=age;
+			}
+			talk(){
+					console.log('BBBBBB....');
+			}
+		}
+		class C extends A{
+			cc(okc){
+				alert(666);
+			}
+		}
+		var b=new B(11);
+		b.name='Johnson';
+		// b.say();
+		// console.log('b',b);
+		var c=new B(11);
+		c.name='Tim';
+		// c.say();
+		// console.log(c);
+		// console.log(b instanceof C);
+		var a={
+		    value:0,
+		    toString(){
+		    	this.value++;
+		    	return this.value;
+		    }
+		}
+		// console.log(a==1);console.log(a==2);console.log(a);
+		// var array=[12,3];
+		// var arr=array.toString();
+		// console.log(arr instanceof String);
+		function fa(a){
+			this.a=a;
+		};
+		var f=new fa('a');
+		// console.log(f instanceof fa);
+		console.log(f);
+		// instanceof运算符用来判断一个构造函数的prototype属性所指向的对象是否存在另外一个要检测对象的原型链上
+	</script>
+</body>
+</html>

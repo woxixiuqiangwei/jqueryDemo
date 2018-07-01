@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery-1.10.2.min.js'></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<!-- <img src="flex.png"> -->
+	<div><b>asdsdf21a</b></div><div>asd213a214</div><div>asda214</div>
+	<button>点击</button>
+
+	<script>
+		$('div').on('dblclick',function(){
+			alert(1);
+		})
+		// $('img').on('click',function(e){
+		// 	var e=e||window.event;
+		// 	e.preventDefault();
+		// 	// alert(1);
+		// })
+		var arr=[1,2,3,4];
+		var d=document.querySelectorAll('div');
+		$('button').click(function(){
+			// $().each()方法规定为每个匹配元素规定运行的函数
+			// 没有参数
+			$('div').each(function(){
+				// alert($(this).text());
+				console.log(($(this).text()));
+				// html()//会把指定元素的含标签形式返回，而text()只会返回文本，会把标签忽略
+			})
+			$(arr).each(function(i,n){
+			console.log("索引 "+i+' '+"对应的值 "+n+' ');
+			});
+			// js forEach方法遍历数组,元素
+			// d.forEach(function(value,index){
+   // 				console.log(d[index].innerHTML);  
+  	// 		});
+				   //结果为 10
+		})
+		// document.write('<br>');
+		
+		//document.write(arr);
+		// $.each()是jquery中遍历数组的方法// 第一个参数为索引，第二个参数为内容
+		// forEach是js中遍历数组的方法
+		// $(arr).each(function(i,n){
+		// 	document.write("索引 "+i+' '+"对应的值 "+n+' ');
+		// });
+		//$.each(arr,function(i,n){
+   	 		//document.write("索引"+i+"对应的值"+n);
+		//});
+		// var date1=new Date();
+		//document.write(date1.getMonth()+1);
+	</script>
+</body>
+</html>

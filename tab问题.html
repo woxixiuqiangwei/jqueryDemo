@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src='jquery-1.10.2.min.js'></script>
+	<style type="text/css">
+		ul{list-style: none;}
+		ul li{
+			float: left;background: orange;
+			width: 100px;border-right: 1px solid red;
+			text-align: center;
+			cursor: pointer;
+		}
+		ul li.active{
+			color:lightblue;
+			font-weight: bold;background: green;
+		}
+	</style>
+</head>
+<body>
+<!-- 	<ul>
+		<li>1111</li>
+		<li>2222</li>
+		<li>3333</li>
+	</ul>
+	<button>点下</button> -->
+	<div>
+		<pre>
+			sadasd
+			asdas 
+			asd asd as
+			sad as d</pre>
+	</div>
+	<script type="text/javascript">
+		// var dd=0;
+		// alert(++dd);
+		// console.log(dd);
+		var i=0;
+		$('ul li').click(function(){
+			 i=$(this).index();
+			 // alert(i);
+			$(this).addClass('active').siblings('li').removeClass('active');
+		})
+		$('button').click(function(){
+			// $('ul li').eq(2).addClass('active').siblings('li').removeClass('active');
+			alert(i);
+		})
+		$('div').click(function(){
+			alert(1);
+		})
+		$('pre').click(function(){
+			alert('pre');
+		})
+	</script>
+</body>
+</html>
