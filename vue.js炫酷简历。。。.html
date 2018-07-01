@@ -2,13 +2,15 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width,initial=1.0,maximum-scale=1,minimum-scale=1'>
 	<style type="text/css">
 		#app{
 			white-space: pre-wrap;
 		}
 		img{
 			opacity: 0;
-			transition: .5s;
+			transition: .5s .3s;
 		}
 	</style>
 </head>
@@ -22,9 +24,10 @@
 		var data=`
 body{
 	background:orange;
+	font-size:2vw;
 }
 #app{
-	color:red;
+	color:blue;
 	border:3px solid green;
 	width:50vw;
 	height:50vh;
@@ -51,7 +54,7 @@ img{
 				sty.innerHTML=data.substring(0,n);
 			}		
 			n++;
-		},20);
+		},30);
 		// function call(){
 		// 	return new Promise((resolve,reject)=>{
 		// 		setTimeout(function(){
