@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<style>
+	html{
+		height: 100%;
+	}
+	body{
+		height: 100%;
+		background: url(1.jpg) no-repeat center;
+	}
+	#guessLocal{
+		font-size: .4rem;
+	}
+	.box{
+		text-align: center;
+		margin-top: 1rem;
+	}
+	#inputSearch{
+		opacity: .5;
+		border-radius:8px;
+		font-size: .32rem;
+	    min-height:.32rem; 
+		text-align: left;
+		border:2px solid blueviolet;
+		display: inline-block;
+		width: 3rem;	
+	}
+	#inputSearch:focus{
+		border-radius:8px;
+		outline: none;
+		border:2px solid #999;
+	}
+	.Btn,#inputSearch{
+		vertical-align: middle;
+	}
+	.Btn{
+		display: inline-block;
+	    height:.6rem;
+	    line-height: .6rem;
+	    padding: 0 .3rem;
+	    background-color: #1E9FFF;;
+	    color: #fff;
+	    white-space: nowrap;
+	    text-align: center;
+	    font-size: .32rem;
+	    border: none;
+	    border-radius: 8px;
+	    cursor: pointer;
+	}
+	.Btn:focus{
+		outline: none;
+	}
+	.clear{
+		background: #FF5722;
+	}
+	.result{
+		list-style: none;
+		font-size: .3rem;
+		/*transition: .4s;*/
+		display: none;
+	}
+	.result li{
+		margin:.26rem 0;
+		border-bottom: 1px dashed brown;
+		padding-bottom: .2rem;
+	}
+</style>
+</head>
+<body>
+	<h2 id='guessLocal'>当前定位城市：</h2>
+	<div class="box">
+		<!-- <input type="text" placeholder="请输入你要搜索的地方名字" id='inputSearch'> -->
+		<div contenteditable="true" id='inputSearch'></div> 
+		<button class='Btn searchBtn'>搜索</button>
+		<button class='Btn clear'>清空</button>
+	</div>
+	<ul class="result">
+		
+	</ul>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		window.onload=function(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth /7.5 + 'px';
+		}	
+		window.onresize=function(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth /7.5 + 'px';
+		}
+		$.get('https://elm.cangdu.org/v1/cities?type=guess',function(res){
+			var a=$('#guessLocal').html();
+			$('#guessLocal').html(a+res.name);
+		})
+		$('.clear').click(function(){
+			inputSearch.innerHTML='';
+			// $('.result').html('');
+			$('.result').fadeOut();
+		})
+		$('.searchBtn').click(function(){
+
+			var txt=$('#inputSearch').html();
+			if(txt==''){
+				alert('请输入搜索内容~~~~~');
+				$('#inputSearch').focus();
+				return false;
+			}
+			$.get('https://elm.cangdu.org/v1/pois?city_id=1&keyword='+txt,function(res){
+				// console.log(res);
+				var s='';
+				for(var i in res){
+					s+='<li>名称：'+res[i].name+'<br/>'+'地址：'+res[i].address+'</li>';
+				}
+				$('.result').html(s);
+				$('.result').fadeIn();
+
+			})
+		})
+	</script>
+
+</body>
+</html>
