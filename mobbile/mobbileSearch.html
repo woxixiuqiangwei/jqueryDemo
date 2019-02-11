@@ -100,7 +100,7 @@
 			$('#guessLocal').html(a+res.name);
 		})
 		var timer=null;
-		// timer必须是全局变量，如果是局部变量，点击多次清除按钮时就会定义多个定时器，是全局的话点击多次也只定义一个定时器(变量会提升,清除timer时只会清除undefined)
+		// timer必须是全局变量，如果是局部变量，点击多次清除按钮时就会定义多个定时器(变量会提升,清除timer时只会清除undefined)，是全局的话点击多次也只定义一个定时器
 		$('.clear').click(function(){
 			inputSearch.innerHTML='';
 	
