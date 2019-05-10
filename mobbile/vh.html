@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			height:100vh;
+			color: #fff;
+			background: #333;
+			line-height: 1.8;
+			overflow: hidden;		
+		}
+		.container{
+			height: 100%;
+
+			overflow-y: scroll;
+			scroll-behavior: smooth;
+			scroll-snap-type:y mandatory;
+
+		}
+		a{
+			text-decoration: none;
+			color: #fff;	
+		}
+		li{
+			list-style: none;
+		}
+		nav{
+			position: fixed;
+			width: 100%;
+			height: 60px;
+			background:rgba(0,0,0,.5);
+			line-height: 60px;		
+		}
+		nav ul{
+			display: flex;
+			justify-content: center;
+		}
+		nav ul li{
+			margin:0 .1rem;
+			font-size: .36rem;
+		}
+		section{
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			scroll-snap-align:center;
+		}
+		section h1{
+			font-size:1rem;
+		}
+		section p{
+			padding: .4rem;
+			font-size:.4rem;
+		}
+		section#home{
+			background: url('https://images.pexels.com/photos/2253647/pexels-photo-2253647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center/cover;
+		}
+		section#about{
+			background: url('https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center/cover;
+		}
+		section#service{
+			background: url('https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center/cover;
+		}
+		
+		section#contact{
+			background: url('https://images.pexels.com/photos/1251088/pexels-photo-1251088.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center/cover;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- 导航 -->
+		<nav>
+			<ul>
+				<li>
+					<a href="#home">首页</a>
+				</li>
+				<li>
+					<a href="#about">关于我们</a>
+				</li>
+				<li>
+					<a href="#service">我们的服务</a>
+				</li>
+				<li>
+					<a href="#contact">联系我们</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- 内容区域 -->
+		<section id='home'>
+			<h1>首 页</h1>
+			<p>这世上，没有谁活得比谁容易，只是有人在呼天抢地，有人在默默努力。</p>
+		</section>
+		<section id='about'>
+			<h1>关于我们</h1>
+			<p>每个人身上都有惰性和消极情绪，成功的人都是懂得管理自己的情绪和克服自己的惰性，并像太阳一样照亮身边的人，激励身边的人。</p>
+		</section>
+		<section id='service'>
+			<h1>我们的服务</h1>
+			<p>有时候，总觉得自己的梦想很大，终点很远，像是异想天开，但其实也没有那么遥远，就这样一步一步的走，走着走着就到了。</p>
+		</section>
+		<section id='contact'>
+			<h1>联系我们</h1>
+			<p>123456789</p>
+		</section>
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			if(document.documentElement.clientWidth<800)
+			document.documentElement.style.fontSize=document.documentElement.clientWidth/7.5+'px';
+		}
+		window.onresize=function(){
+			if(document.documentElement.clientWidth<800)
+			document.documentElement.style.fontSize=document.documentElement.clientWidth/7.5+'px';
+			else{
+				document.documentElement.style.fontSize='50px';
+			}
+		}
+	</script>
+</body>
+</html>
