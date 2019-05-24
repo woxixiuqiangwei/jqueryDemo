@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<style type="text/css">
+		.imgbox{	
+			text-align: center;
+			margin-top: 30%;
+		}
+		.imgbox>img{
+			width: 1.8rem;
+			height: 1.8rem;
+		}
+		p.description{
+			font-size: 0.35rem;
+			margin:0 auto;
+			margin-top: 10%;
+			font-weight: 600;
+			width: 85%;
+		}
+		.imgbox span{
+			margin:0 auto;
+			font-size: 0.5rem;
+			display: block;
+			width: 85%;
+			padding-bottom: 10%;
+			font-weight: 600;
+			border-bottom: 1px solid rgb(239,239,239)
+		}
+		.getInfo{		
+			width: 85%;
+			margin:0.8rem auto;
+			margin-top: 0.4rem;
+		}
+		.getInfo li{
+			font-size: 0.31rem;
+			color:rgb(125,125,125);
+		}
+		.loginbtnBox{
+			text-align: center;
+		}
+		.loginBtn{
+			background: rgb(4,190,1);
+			padding: 0.3rem 2.5rem;
+			border:none;
+			color:white;
+			font-size: 0.42rem;
+			border-radius: 6px;
+		}
+	</style>
+</head>
+<body>
+	<div class="imgbox">
+		<img src="https://ws1.sinaimg.cn/large/e50a70c5ly1fwa4b93amsj207g07gju0.jpg">
+		<span>昭通公安</span>
+	</div>
+	<p class="description">网页由该公众号开发，请确认授权以下信息</p>
+	<ul class='getInfo'>
+		<li>获取你的公开信息(昵称、头像等)</li>
+	</ul>	
+	<div class='loginbtnBox'>
+		<button class='loginBtn'>确认登录</button>
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			document.documentElement.style.fontSize=document.documentElement.clientWidth/7.5+'px';
+		}
+		window.onresize=function(){
+			document.documentElement.style.fontSize=document.documentElement.clientWidth/7.5+'px';
+		}
+	</script>
+</body>
+</html>
